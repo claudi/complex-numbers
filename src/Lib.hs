@@ -40,3 +40,4 @@ conjugate (Polar r t) = Polar r (-t)
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
+
