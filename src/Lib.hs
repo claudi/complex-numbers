@@ -22,6 +22,10 @@ mod2PI t
   | (t >= 2*pi)             = mod2PI (t - 2*pi)
   | (t < 0)                 = mod2PI (t + 2*pi)
 
+simplifyNum :: Complex -> Complex
+simplifyNum (Cartesian x y) = Cartesian x y
+simplifyNum (Polar r t) = Polar r $ mod2PI t
+
 toCartesian :: Complex -> Complex
 toCartesian (Cartesian x y) = Cartesian x y
 toCartesian (Polar r t) = undefined
