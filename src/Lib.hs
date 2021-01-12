@@ -16,6 +16,12 @@ instance Show Complex where
   show (Cartesian x y) = (show x) ++ " + " ++ (show y) ++ "i"
   show (Polar     r t) = (show r) ++ "e^(" ++ (show t) ++ "i)"
 
+mod2PI :: Argument -> Argument
+mod2PI t
+  | (t <= 2*pi) && (t >= 0) = t
+  | (t >= 2*pi)             = mod2PI (t - 2*pi)
+  | (t < 0)                 = mod2PI (t + 2*pi)
+
 conjugate :: Complex -> Complex
 conjugate (Cartesian x y) = Cartesian x (-y)
 conjugate (Polar r t) = Polar r (-t)
