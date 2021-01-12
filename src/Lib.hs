@@ -22,6 +22,10 @@ mod2PI t
   | (t >= 2*pi)             = mod2PI (t - 2*pi)
   | (t < 0)                 = mod2PI (t + 2*pi)
 
+toPolar :: Complex -> Complex
+toPolar (Cartesian x y) = undefined
+toPolar (Polar r t) = (Polar r t)
+
 conjugate :: Complex -> Complex
 conjugate (Cartesian x y) = Cartesian x (-y)
 conjugate (Polar r t) = Polar r (-t)
