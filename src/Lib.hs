@@ -42,8 +42,8 @@ toCartesian (Cartesian x y) = Cartesian x y
 toCartesian (Polar r t) = Cartesian (r*cos(t)) (r*sin(t))
 
 toPolar :: Complex -> Complex
-toPolar (Cartesian x y) = undefined
-toPolar (Polar r t) = (Polar r t)
+toPolar z@(Cartesian _ _) = Polar (norm z) (arg z)
+toPolar   (Polar r t) = (Polar r t)
 
 conjugate :: Complex -> Complex
 conjugate (Cartesian x y) = Cartesian x (-y)
