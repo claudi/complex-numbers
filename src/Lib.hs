@@ -28,7 +28,7 @@ simplifyNum (Polar r t) = Polar r $ mod2PI t
 
 toCartesian :: Complex -> Complex
 toCartesian (Cartesian x y) = Cartesian x y
-toCartesian (Polar r t) = undefined
+toCartesian (Polar r t) = Cartesian (r*cos(t)) (r*sin(t))
 
 toPolar :: Complex -> Complex
 toPolar (Cartesian x y) = undefined
