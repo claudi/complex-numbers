@@ -13,8 +13,8 @@ data Complex = Cartesian Re Im
              | Polar Norm Argument
 
 instance Show Complex where
-  show (Cartesian x y) = (show x) ++ " + " ++ (show y) ++ "i"
-  show (Polar     r t) = (show r) ++ "e^(" ++ (show t) ++ "i)"
+  show (Cartesian x y) = (show x) ++ " + " ++ (show y) ++ "*i"
+  show (Polar     r t) = (show r) ++ "e^(" ++ (show t) ++ "*i)"
 
 mod2PI :: Argument -> Argument
 mod2PI t
