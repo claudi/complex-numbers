@@ -26,6 +26,17 @@ simplifyNum :: Complex -> Complex
 simplifyNum (Cartesian x y) = Cartesian x y
 simplifyNum (Polar r t) = Polar r $ mod2PI t
 
+norm :: Complex -> Double
+norm (Cartesian x y) = sqrt(x*x + y*y)
+norm (Polar r _) = r
+
+arg :: Complex -> Double
+arg (Cartesian x y) 
+    | x == 0 = 0
+    | x > 0  = atan (y/x)
+    | x < 0  = atan $ (y/x) + pi
+arg (Polar _ t) = t
+
 toCartesian :: Complex -> Complex
 toCartesian (Cartesian x y) = Cartesian x y
 toCartesian (Polar r t) = Cartesian (r*cos(t)) (r*sin(t))
