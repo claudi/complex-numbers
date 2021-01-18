@@ -49,6 +49,15 @@ conjugate :: Complex -> Complex
 conjugate (Cartesian x y) = Cartesian x (-y)
 conjugate (Polar r t) = Polar r (-t)
 
+add :: Complex -> Complex -> Complex
+add (Cartesian x y) (Cartesian x' y') = Cartesian (x + x') (y + y')
+add (Polar r t) (Polar r' t') = Polar newr newt
+  where 
+    newr = sqrt(r*r + r'*r' + 2*r*r')*cos(t' - t)
+    newt = undefined
+add z1@(Cartesian _ _) z2@(Polar _ _) = add z1 $ toCartesian z2
+add z1@(Polar _ _) z2@(Cartesian _ _) = add z1 $ toPolar z2
+
 multiply :: Complex -> Complex -> Complex
 multiply (Cartesian x y) (Cartesian x' y') = Cartesian (x*x' - y*y') (x*y' + x'*y)
 multiply (Polar r t) (Polar r' t') = Polar (r*r') (t + t')
