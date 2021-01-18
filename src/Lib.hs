@@ -49,6 +49,12 @@ conjugate :: Complex -> Complex
 conjugate (Cartesian x y) = Cartesian x (-y)
 conjugate (Polar r t) = Polar r (-t)
 
+multiply :: Complex -> Complex -> Complex
+multiply (Cartesian x y) (Cartesian x' y') = Cartesian (x*x' - y*y') (x*y' + x'*y)
+multiply (Polar r t) (Polar r' t') = Polar (r*r') (t + t')
+multiply z1@(Cartesian _ _) z2@(Polar _ _) = multiply z1 $ toCartesian z2
+multiply z1@(Polar _ _) z2@(Cartesian _ _) = multiply z1 $ toPolar z2
+
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
