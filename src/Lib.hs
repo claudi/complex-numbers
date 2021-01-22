@@ -12,6 +12,9 @@ type Argument = Double
 data Complex = Cartesian Re Im
              | Polar Norm Argument
 
+instance Semigroup Complex where
+  (<>) = add
+
 instance Show Complex where
   show (Cartesian x y) = (show x) ++ " + " ++ (show y) ++ "*i"
   show (Polar     r t) = (show r) ++ "e^(" ++ (show t) ++ "*i)"
