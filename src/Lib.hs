@@ -15,6 +15,9 @@ data Complex = Cartesian Re Im
 instance Semigroup Complex where
   (<>) = add
 
+instance Monoid Complex where
+  mempty = Cartesian 0 0
+
 instance Show Complex where
   show (Cartesian x y) = (show x) ++ " + " ++ (show y) ++ "*i"
   show (Polar     r t) = (show r) ++ "e^(" ++ (show t) ++ "*i)"
