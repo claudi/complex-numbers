@@ -1,6 +1,6 @@
 module Lib
     ( someFunc
-    , Complex (Cartesian, Polar)
+    , Complex (..)
     ) where
 
 type Re = Double
