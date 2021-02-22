@@ -36,7 +36,7 @@ norm :: Complex -> Double
 norm (Cartesian x y) = sqrt(x*x + y*y)
 norm (Polar r _) = r
 
-arg :: Complex -> Double
+arg :: Complex -> Argument
 arg (Cartesian x y) 
     | x == 0 = 0
     | x > 0  = atan (y/x)
