@@ -60,7 +60,7 @@ add (Cartesian x y) (Cartesian x' y') = Cartesian (x + x') (y + y')
 add (Polar r t) (Polar r' t') = Polar newr newt
   where 
     newr = sqrt(r*r + r'*r' + 2*r*r')*cos(t' - t)
-    newt = undefined
+    newt = t + arg (Cartesian (r' * sin(t' - t)) (r + r' * cos(t' - t)))
 add z1@(Cartesian _ _) z2@(Polar _ _) = add z1 $ toCartesian z2
 add z1@(Polar _ _) z2@(Cartesian _ _) = add z1 $ toPolar z2
 
